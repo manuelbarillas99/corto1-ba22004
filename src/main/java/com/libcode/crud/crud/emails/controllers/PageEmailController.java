@@ -21,13 +21,12 @@ public ResponseEntity<Email> comprobarEmail(@PathVariable String email) {
     Random random = new Random();
     Email emailToSave = new Email(email, random.nextBoolean());
 
-    // Guardar el objeto en la base de datos
+
     Email savedEmail = this.emailRepository.save(emailToSave);
 
-    // Mensaje de depuración en la consola
     System.out.println("Email guardado: " + savedEmail);
 
-    // Retornar el objeto guardado con un código HTTP 200 (OK)
+  
     return ResponseEntity.ok(savedEmail);
 }
     
